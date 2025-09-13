@@ -71,5 +71,21 @@ class TestCounterEndpoints:
 
         result = client.delete('/counters/foo')
         assert result.status_code == status.HTTP_404_NOT_FOUND
+
+    ## ===========================
+    # Test: Incrementing a counter
+    # Author: Eshan Ahmad
+    # Date: 2025-09-12
+    # Description: testing incrementing counters
+    # ===========================
+    def test_increment_counter(self,client):
+        result = client.post('/counters/foo')
+        result = client.put('/counters/foo')
+        assert result.status_code == status.HTTP_200_OK
+
+        counterVal = result.get_json()
+        assert counterVal["value"] == 1 #check if value incremented to 1
+
+
         
 

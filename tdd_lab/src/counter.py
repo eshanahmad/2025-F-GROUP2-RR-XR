@@ -52,3 +52,19 @@ def create_counter(name):
 @app.route('/counters', methods=["GET"])
 def list_counters():
    return jsonify(COUNTERS), status.HTTP_200_OK
+
+
+# ===========================
+# Test: increment counter
+# Author: Eshan Ahmad
+# Date: 2025-09-12
+# Description: increment the counter
+# ===========================
+@app.route('/counters/<name>', methods=["PUT"])
+def increment_counter(name):
+    if not counter_exists(name):
+        return jsonify("counter does not exist"), status.HTTP_404_NOT_FOUND
+    COUNTERS[name] += 1
+    return jsonify({"name": name, "value": COUNTERS[name]}), status.HTTP_200_OK
+
+
