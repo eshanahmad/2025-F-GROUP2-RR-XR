@@ -36,7 +36,7 @@ jobs:
       # author: Eshan Ahmad
       - name: Run Tests with Pytest and coverage artifact
         run: |
-          pytest --cov=src --cov-report=term-missing
+          pytest --cov=src --cov-report=term-missing \
                  --cov-report=html \
                  --cov-report=annotate:artifact.txt
 
