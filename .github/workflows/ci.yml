@@ -41,7 +41,7 @@ jobs:
           --cov-report=annotate:artifact.txt
 
       - name: Upload coverage artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: coverageReport
           path: |
