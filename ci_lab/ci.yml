@@ -32,3 +32,18 @@ jobs:
 
       - name: Run Flake8 Linting
         run: flake8 src --count --select=E9,F63,F7,F82 --show-source --statistics
+
+      # author: Eshan Ahmad
+      - name: Run Tests with Pytest and coverage artifact
+        run: |
+          pytest --cov=src --cov-report=term-missing \
+                 --cov-report=html \
+                 --cov-report=annotate:artifact.txt
+
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverageReport
+          path: |
+            ci_lab/htmlcov
+            ci_lab/artifact.txt
