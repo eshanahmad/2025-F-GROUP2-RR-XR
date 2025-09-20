@@ -285,3 +285,7 @@ class TestCounterEndpoints:
         response = client.put("/counters/testcounter/set/-1")
 
         assert response.status_code == HTTPStatus.BAD_REQUEST
+
+    #author: Eshan Ahmad
+    def test_failing_test(self, client):
+        assert 1 + 1 == 1
