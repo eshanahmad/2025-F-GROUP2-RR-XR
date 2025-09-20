@@ -288,4 +288,4 @@ class TestCounterEndpoints:
 
     #author: Eshan Ahmad
     def test_failing_test(self, client):
-        assert 1 + 1 == 1
+        assert 1 + 1 == 2
