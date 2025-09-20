@@ -277,3 +277,11 @@ class TestCounterEndpoints:
         assert response.status_code == HTTPStatus.BAD_REQUEST
 
         # TODO: Add an assertion to verify the error message specifically says 'Invalid counter name'S
+
+
+    #author: Eshan Ahmad
+    def test_negative_counter_value(self, client):
+        client.post("/counters/testcounter")
+        response = client.put("/counters/testcounter/set/-1")
+
+        assert response.status_code == HTTPStatus.BAD_REQUEST
